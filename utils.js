@@ -1,0 +1,421 @@
+const blogData = [
+    {
+        title: 'Unique Digits Check Using Bits Manipulation',
+        content: 'To determine if a number has all unique digits using XOR and bit manipulation in Java, we can leverage the properties of bits to track the occurrence of each digit.',
+        codeSnippets: [
+            {
+                language: 'java',
+                title: '',
+                code: `public class UniqueDigitsChecker {
+
+    // Method to check if all digits in the number are unique using XOR and bit manipulation
+    public static boolean hasUniqueDigits(int number) {
+        int bitmask = 0; // Initialize bitmask to 0
+
+        while (number > 0) {
+            int digit = number % 10; // Extract the last digit
+            int bitPosition = 1 << digit; // Create a bitmask for the current digit
+
+            if ((bitmask & bitPosition) != 0) {
+                // If the bit is already set, the digit is not unique
+                return false;
+            }
+
+            bitmask |= bitPosition; // Set the bit for the current digit
+            number /= 10; // Remove the last digit
+        }
+
+        return true; // All digits are unique
+    }
+
+    public static void main(String[] args) {
+        int number = 12345; // Example number
+        if (hasUniqueDigits(number)) {
+            System.out.println("The number has all unique digits.");
+        } else {
+            System.out.println("The number has duplicate digits.");
+        }
+    }
+}`
+            }
+        ]
+    },
+    {
+        title: 'LCS OF TWO STRING USING DP',
+        content: 'Here are some common array methods in JavaScript and how to use them.',
+        codeSnippets: [
+            {
+                language: 'java',
+                title: 'LCS OF TWO STRINGS',
+                code: `// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+class Main {
+    public static void main(String[] args) {
+       String s1="ABCBDAB",s2="BDCAB";
+       int m=s1.length(),n=s2.length();
+       int[][] dp=new int[m+1][n+1];
+       for(int i=1;i<=m;i++){
+           for(int j=1;j<=n;j++){
+               if(s1.charAt(i-1)==s2.charAt(j-1)){
+                   dp[i][j]=dp[i-1][j-1]+1;
+               }
+               else{
+                   dp[i][j]=Math.max(dp[i-1][j],dp[i][j-1]);
+               }
+           }
+       }
+        for(int i=0;i<m;i++){
+           for(int j=0;j<n;j++){
+               System.out.print(dp[i][j]+" ");
+           }
+             System.out.println();
+          }
+          
+          int i=m,j=n;
+          StringBuilder res=new StringBuilder();
+          while(i>0 && j>0){
+              if(s1.charAt(i-1)==s2.charAt(j-1)){
+                  res.append(s1.charAt(i-1));
+                  i--;
+                  j--;
+              }
+              else if(dp[i-1][j]>dp[i][j-1]){
+                  i--;
+              }
+              else j--;
+          }
+          System.out.println(res.reverse());
+       
+    }
+}`
+            },
+            
+            
+
+        ]
+    },
+    {
+        title: 'Binary tree creation and print level order',
+        content: 'Binary tree',
+        codeSnippets: [
+            {
+                language: 'java',
+                title: 'Binary Tree',
+                code: `// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+class Node{
+    int data;
+    Node left,right;
+    Node(int data){
+        this.data=data;
+        right=left=null;
+    }
+}
+class Main {
+    static void inorder(Node p){
+        if(p!=null){
+        inorder(p.left);
+        System.out.println(p.data);
+        inorder(p.right);
+        }
+    }
+    static void levelorder(Node root,int level){
+        if(root==null) return;
+        if(level==1) System.out.print(root.data+" ");
+        else if(level>1){
+            levelorder(root.left,level-1);
+            levelorder(root.right,level-1);
+        }
+       
+    }
+    static int height(Node root){
+        if(root==null) return 0;
+        int lh=height(root.left);
+        int lr=height(root.right);
+        return Math.max(lr,lh)+1;
+    }
+    static Node create(int[] ar,int index){
+        if(index>=ar.length){
+            return null;
+        }
+        Node root=new Node(ar[index]);
+        root.left=create(ar,2*index+1);
+        root.right=create(ar,2*index+2);
+        return root;
+    }
+    public static void main(String[] args) {
+        int[] ar={1,2,3,4,5,6};
+        Node root=create(ar,0);
+        int h=height(root);
+        for(int i=1;i<=h;i++)
+        levelorder(root,i);
+    }
+}`
+            },
+        
+
+        ]
+    },
+    {
+        title: 'Binary Search Tree Creation and display',
+        content: 'The given code represents a Binary Search Tree (BST). However, because elements are inserted in strictly increasing order (1, 2, 3, 4, 5)',
+        codeSnippets: [
+            {
+                language: 'java',
+                title: 'BST',
+                code: `// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+class Node{
+    Node left,right;
+    int data;
+    Node(int data){
+        this.data=data;
+        this.left=null;
+        this.right=null;
+    }
+    
+}
+public class Main {
+    static Node root;
+    void insert(int data){
+        root=insertrec(root,data);
+    }
+    void displayinorder(Node p){
+        if(p!=null){
+            displayinorder(p.left);
+            System.out.print(p.data+" ");
+           displayinorder(p.right);
+        }
+        
+    }
+    void displaypreorder(Node p){
+        if(p!=null){
+            System.out.print(p.data+" ");
+            displaypreorder(p.left);
+           displaypreorder(p.right);
+        }
+        
+        
+    }
+    int height(Node p){
+        if(p==null){
+            return 0;
+            
+        }
+        int lheight=height(p.left);
+        int rheight=height(p.right);
+        return Math.max(lheight,rheight)+1;
+    }
+    void displaypostorder(Node p){
+        if(p!=null){
+          
+           displaypostorder(p.left);
+           displaypostorder(p.right);
+              System.out.print(p.data+" ");
+        }
+        
+    }
+    void printlevel(Node p,int level){
+        if(p==null) return;
+        if(level==1){
+            System.out.println(p.data+" ");
+        }
+        else if(level>1){
+            printlevel(p.left,level-1);
+            printlevel(p.right,level-1);
+        }
+        
+    }
+    Node insertrec(Node root,int data){
+      if(root==null){
+          root=new Node(data);
+          return root;
+      }
+      else if(data < root.data){
+          root.left=insertrec(root.left,data);
+      }
+      else if(data > root.data){
+          root.right=insertrec(root.right,data);
+      }
+      return root;
+      
+    }
+    public static void main(String[] args) {
+        Main m=new Main();
+        
+       m.insert(1);
+       m.insert(2);
+       m.insert(3);
+       m.insert(4);
+       m.insert(5);
+     //  m.displayinorder(root);
+      int height= m.height(root);
+       System.out.println(height);
+      for(int i=1;i<=height;i++){
+          
+      m.printlevel(root,i);
+      }
+     
+    //   m.displaypreorder(root);
+    //   System.out.println();
+    //   m.displaypostorder(root);
+    }
+}`
+            },
+            
+            
+
+        ]
+    },
+    {
+        title: 'Subarray with equal vowels and consonants',
+        content: 'SUBARRAY ',
+        codeSnippets: [
+            {
+                language: 'java',
+                title: 'Subarray with equal vowels and consonants',
+                code: `a="heehfghaeo"
+val,m=0,0
+c="aeiou"
+d={}
+for i in range(len(a)):
+    if a[i] in c:
+        val+=1
+    else:
+        val-=1
+    if val in d:
+       print(a[d[val]+1:i+1])
+        # if i-d[val]>m:
+        #     m=i-d[val]
+    else:
+        d[val]=i
+   
+print(m)
+        
+    
+#subarray with equal vowels and consonants`
+            },
+            
+            
+
+        ]
+    },
+    {
+        title: 'SIMPLE BFS ',
+        content: 'BFS USING QUEUE',
+        codeSnippets: [
+            {
+                language: 'java',
+                title: 'BFS',
+                code: `class Solution {
+    public int minimumTime(int[][] grid) {
+    int m=grid.length;
+    int n=grid[0].length;
+    int[][]direction={{1,0},{-1,0},{0,1},{0,-1}};//top bottom right left
+    boolean[][] visited=new boolean[m][n];
+    Queue<int[]> q=new LinkedList<>();
+    q.add(new int[]{0,0,0});
+    visited[0][0]=true; 
+    while(!q.isEmpty()){
+        int[] cell=q.poll();
+        int x=cell[0];
+        int y=cell[1];
+        int time=cell[2];
+          if(x==m-1 && y==n-1){
+                return time;
+            }
+        for(int[] dir :direction){
+            int nx=x+dir[0];
+            int ny=y+dir[1];
+    
+            if(nx>=0 && nx<m && ny>=0 && ny<n && !visited[nx][ny] ){
+             if (time + 1 >= grid[nx][ny]) {
+                visited[nx][ny]=true;
+                q.add(new int[]{nx,ny,time+1});
+             }
+            }
+        }
+    }
+    return -1;
+    }
+}`
+            },
+            
+            
+
+        ]
+    },
+    {
+        title: '',
+        content: '',
+        codeSnippets: [
+            {
+                language: '',
+                title: '',
+                code: ``
+            },
+            
+            
+
+        ]
+    },
+    
+];
+
+function toggleTheme() {
+    const body = document.body;
+    const themeToggle = document.getElementById('theme-toggle');
+    
+    body.classList.toggle('dark-mode');
+    body.classList.toggle('light-mode');
+
+    const isDarkMode = body.classList.contains('dark-mode');
+    themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+}
+
+function createCodeBlock(codeSnippet) {
+    const title = codeSnippet.title ? `<h3 class="code-title">${codeSnippet.title}</h3>` : '';
+    const escapedCode = codeSnippet.code
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+
+    return `
+        <div class="code-block ${codeSnippet.language}">
+            ${title}
+            <div class="code-header">
+                <span class="language-badge">${codeSnippet.language}</span>
+                <button class="copy-button" onclick="copyCode(this)">Copy</button>
+            </div>
+            <pre class="line-numbers"><code class="language-${codeSnippet.language}">${escapedCode}</code></pre>
+        </div>
+    `;
+}
+
+function renderBlogEntry(entry) {
+    const codeBlocks = entry.codeSnippets.map(snippet => createCodeBlock(snippet)).join('');
+
+    return `
+        <article class="blog-entry">
+            <h2>${entry.title}</h2>
+            <p>${entry.content}</p>
+            ${codeBlocks}
+        </article>
+    `;
+}
+
+function copyCode(button) {
+    const codeBlock = button.closest('.code-block').querySelector('pre code');
+    const textArea = document.createElement('textarea');
+    textArea.value = codeBlock.innerText;
+    document.body.appendChild(textArea);
+    textArea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textArea);
+    
+    button.textContent = 'Copied!';
+    setTimeout(() => button.textContent = 'Copy', 1500);
+}
