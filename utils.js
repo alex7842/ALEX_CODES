@@ -1,4 +1,5 @@
 const blogData = [
+	
     {
         title: 'Unique Digits Check Using Bits Manipulation',
         content: 'To determine if a number has all unique digits using XOR and bit manipulation in Java, we can leverage the properties of bits to track the occurrence of each digit.',
