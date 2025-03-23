@@ -465,6 +465,7 @@ class Main {
             add(5);
         //     System.out.println("added");
         // }
+        
         Node t=head;
      while(t != null){
     System.out.println("+------------------+");
