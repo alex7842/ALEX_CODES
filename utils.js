@@ -347,6 +347,7 @@ print(m)
 
         ]
     },
+    
     {
         title: 'GRAPH TRAVERSAL BFS',
         content: 'GRAPH TRAVERSAL',
@@ -392,7 +393,7 @@ class Graph_creation_and_BFS{
 
         ]
     },
-    
+
     
 ];
 
