@@ -347,7 +347,7 @@ print(m)
 
         ]
     },
-    
+
     {
         title: 'GRAPH TRAVERSAL BFS',
         content: 'GRAPH TRAVERSAL',
@@ -387,6 +387,117 @@ class Graph_creation_and_BFS{
          bfs(0);
     }
 }`
+            },
+            
+            
+
+        ]
+    },
+        
+    {
+        title: 'BlockChain Linked List',
+        content: 'BlockChain replication',
+        codeSnippets: [
+            {
+                language: 'JAVA',
+                title: 'Linked List',
+                code: `
+import java.util.*;
+
+
+class Helper{
+    int generateHash(){
+        return (int)(Math.random()*1000);
+    }
+    int generateNonce(){
+        return (int)(Math.random()*100);
+    }
+}
+
+class Node extends Helper{
+    int data;
+    Node next;
+    int nonce=generateNonce();
+    int hash=generateHash();
+    int prevhash=0;
+    Node(int data,int a){
+    this.nonce=nonce;
+    this.hash=hash;
+    this.prevhash=a;
+    this.data=data;
+    this.next=null;
+    }
+    Node (int data){
+         this.data=data;
+         this.hash=hash;
+         this.prevhash=-1;
+    this.next=null;
+    }
+}
+
+class Main {
+    static Node head=null,tail=null;
+    static int prevhash=0;
+    static void add(int a){
+        if(head==null){
+        Node temp=new Node(a);
+           head=temp;
+           tail=temp;
+           prevhash=temp.hash;
+        }
+        else{
+            Node temp=new Node(a,prevhash);
+            tail.next=temp;
+            tail=temp;
+            prevhash=temp.hash;
+            
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        System.out.println("Enter numbers to added in block");
+        // for(int i=0;i<5;i++){
+        //     int n=sc.nextInt();
+            add(1);
+            add(2);
+            add(3);
+            add(4);
+            add(5);
+        //     System.out.println("added");
+        // }
+        Node t=head;
+     while(t != null){
+    System.out.println("+------------------+");
+    System.out.printf("| Data:  %-6d      |%n", t.data);
+    System.out.printf("| Hash:  %-6d      |%n", t.hash);
+    System.out.printf("| Nonce: %-6d      |%n", t.nonce);
+    System.out.printf("| PrevHash: %-6d      |%n", t.prevhash);
+    System.out.println("+------------------+\n");
+    
+    t = t.next;
+}
+
+
+
+        
+        
+    }
+}`
+            },
+            
+            
+
+        ]
+    },
+        
+    {
+        title: '',
+        content: ' ',
+        codeSnippets: [
+            {
+                language: '',
+                title: '',
+                code: ``
             },
             
             
