@@ -347,13 +347,44 @@ print(m)
         ]
     },
     {
-        title: '',
-        content: '',
+        title: 'GRAPH TRAVERSAL BFS',
+        content: 'GRAPH TRAVERSAL',
         codeSnippets: [
             {
-                language: '',
-                title: '',
-                code: ``
+                language: 'JAVA',
+                title: 'GRAPH',
+                code: `import java.util.*;
+class Graph_creation_and_BFS{
+    static List<List<Integer>> list=new ArrayList<>();
+    static void graph(int x,int y){
+        list.get(x).add(y);
+        list.get(y).add(x);
+    }
+    static void bfs(int s){
+        boolean []visited=new boolean[list.size()];
+        Queue<Integer> node=new LinkedList<>();
+        for(int i=0;i<list.size();i++) visited[i]=false;
+        node.add(s);
+        visited[s]=true;
+        while(!node.isEmpty()){
+            int p=node.poll();
+	        System.out.print(p+" ");
+	        for(int v:list.get(p)){
+	            if(!visited[v]){
+	                visited[v]=true;
+	                node.add(v);
+	            }
+	        }
+        }
+    }
+    public static void main(String[] args) {
+         Scanner in=new Scanner(System.in);
+         int n=in.nextInt();
+         for(int i=0;i<n;i++) list.add(new ArrayList<Integer>());
+         for(int i=0;i<n;i++) graph(in.nextInt(),in.nextInt());
+         bfs(0);
+    }
+}`
             },
             
             
