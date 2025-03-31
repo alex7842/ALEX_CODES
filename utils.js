@@ -519,7 +519,7 @@ class Main {
         ]
     },
 	 {
-        title: 'Maximum Circular SubArray Sum Using Kadane Algorithm',
+        title: 'Maximum Circular SubArray Sum ',
         content: `Steps:
 Find maxNormal using normal Kadane’s Algorithm.
 
