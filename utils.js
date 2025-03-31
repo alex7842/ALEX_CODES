@@ -519,13 +519,50 @@ class Main {
         ]
     },
 	 {
-        title: '',
-        content: '',
+        title: 'Maximum Circular SubArray Sum Using Kadane Algorithm',
+        content: `Steps:
+Find maxNormal using normal Kadane’s Algorithm.
+
+Compute totalSum of the array.
+
+Find minSubarraySum by applying Kadane’s on the negative of the array.
+
+Compute circularMaxSum = totalSum - minSubarraySum.
+
+Return the maximum of (maxNormal, circularMaxSum).`,
         codeSnippets: [
             {
-                language: '',
-                title: '',
-                code: ``
+                language: 'Java',
+                title: 'Circular SubArray',
+                code: `
+class Solution {
+
+    static int kadane(int[] arr){
+        int curSum=0,max=Integer.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            curSum+=arr[i];
+            max=Math.max(max,curSum);
+            if(curSum<0) curSum=0;
+            
+        }
+        return max;
+    }
+    public int circularSubarraySum(int arr[]) {
+        int n=arr.length,total=0;
+        int normalSum=kadane(arr);
+        if(normalSum<0) return normalSum;
+        for(int i=0;i<n;i++){
+            total+=arr[i];
+            arr[i]=-arr[i];
+        }
+        int minSum=kadane(arr);
+        int totalSum=minSum+total;
+        return Math.max(normalSum,totalSum);
+        
+       
+        
+    }
+}`
             },
             
             
