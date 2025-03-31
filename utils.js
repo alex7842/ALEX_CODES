@@ -570,6 +570,61 @@ class Solution {
         ]
     },
 	 {
+        title: 'Reverse Linked List',
+        content: 'reverse linked list',
+        codeSnippets: [
+            {
+                language: 'java',
+                title: 'Reverse Linked List',
+                code: `class ListNode {
+    int val;
+    ListNode next;
+    ListNode(int val) { this.val = val; }
+}
+
+public class ReverseLinkedList {
+    public static ListNode reverseList(ListNode head) {
+        ListNode prev = null, curr = head, next = null;
+
+        while (curr != null) {
+            next = curr.next;  // Store next node
+            curr.next = prev;  // Reverse link
+            prev = curr;  // Move prev forward
+            curr = next;  // Move curr forward
+        }
+        return prev; // New head
+    }
+
+    public static void printList(ListNode head) {
+        while (head != null) {
+            System.out.print(head.val + " ");
+            head = head.next;
+        }
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        ListNode head = new ListNode(1);
+        head.next = new ListNode(2);
+        head.next.next = new ListNode(3);
+
+        System.out.print("Original List: ");
+        printList(head);
+
+        head = reverseList(head);
+
+        System.out.print("Reversed List: ");
+        printList(head);
+    }
+}
+`
+            },
+            
+            
+
+        ]
+    },
+	 {
         title: '',
         content: '',
         codeSnippets: [
@@ -583,6 +638,21 @@ class Solution {
 
         ]
     },
+ {
+        title: '',
+        content: '',
+        codeSnippets: [
+            {
+                language: '',
+                title: '',
+                code: ``
+            },
+            
+            
+
+        ]
+    },
+
 
     
 ];
