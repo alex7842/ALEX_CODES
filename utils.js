@@ -492,8 +492,49 @@ class Main {
     },
         
     {
+        title: 'Maximum Product SubArray',
+        content: 'iven an array arr[] that contains positive and negative integers (may contain 0 as well). Find the maximum product that we can get in a subarray of arr[].',
+        codeSnippets: [
+            {
+                language: 'Java',
+                title: 'Maximum Product SubArray',
+                code: ` 
+    int maxProduct(int[] arr) {
+        int max=Integer.MIN_VALUE;
+        int n=arr.length; 
+        int left=1,right=1;
+        for(int i=0;i<n;i++){
+            if(left==0) left=1;
+            if(right==0) right=1;
+            left*=arr[i];
+            right*=arr[n-i-1];
+            max=Math.max(left,Math.max(right,max));
+        }
+        return max;
+    }`
+            },
+            
+            
+
+        ]
+    },
+	 {
         title: '',
-        content: ' ',
+        content: '',
+        codeSnippets: [
+            {
+                language: '',
+                title: '',
+                code: ``
+            },
+            
+            
+
+        ]
+    },
+	 {
+        title: '',
+        content: '',
         codeSnippets: [
             {
                 language: '',
