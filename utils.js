@@ -625,13 +625,47 @@ public class ReverseLinkedList {
         ]
     },
 	 {
-        title: '',
-        content: '',
+        title: 'Number of Island using BFS',
+        content: 'Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.',
         codeSnippets: [
             {
-                language: '',
-                title: '',
-                code: ``
+                language: 'Java',
+                title: 'Number of Island using Bf',
+                code: `class Solution {
+    static Boolean isValid(int nx,int ny,int r,int c){
+        return (nx>=0 && nx<r && ny>=0 && ny<c);
+    }
+
+    static void dfs(int r,int c,char[][] grid,int row,int col){
+
+        if(!isValid(r,c,row,col) ){
+            return;
+        }
+        int[][] direction={{-1,0},{1,0},{0,1},{0,-1}};
+        if(grid[r][c]=='1'){
+            grid[r][c]='0';
+           for(int[] dir:direction){
+              dfs(r+dir[0],c+dir[1],grid,row,col);
+           }
+        }
+    }
+    public int numIslands(char[][] grid) {
+        int isLand=0;
+        int r=grid.length,c=grid[0].length;
+
+
+        for(int i=0;i<r;i++){
+            for(int j=0;j<c;j++){
+                if(grid[i][j]=='1'){
+                    dfs(i,j,grid,r,c);
+                    isLand++;
+                }
+            }
+        }
+        return isLand;
+
+    }
+}`
             },
             
             
