@@ -627,8 +627,8 @@ public class ReverseLinkedList {
     },
 	 {
         title: 'Number of Island using BFS',
-        content: 'Given an m x n 2D binary grid grid which represents a map of '1's (land) and '0's (water), return the number of islands.',
-        codeSnippets: [
+        content: 'Given an m x n 2D binary grid grid which represents a map of 1s (land) and 0s (water), return the number of islands.',
+        codeSnippets: 
             {
                 language: 'Java',
                 title: 'Number of Island using Bf',
