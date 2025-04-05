@@ -671,11 +671,12 @@ public class ReverseLinkedList {
             
             
         
-    ]
+        ]
 }
 
 
     
+
 ];
 
 function toggleTheme() {
