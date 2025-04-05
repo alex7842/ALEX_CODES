@@ -628,10 +628,10 @@ public class ReverseLinkedList {
 	 {
         title: 'Number of Island using BFS',
         content: 'Given an m x n 2D binary grid grid which represents a map of 1s (land) and 0s (water), return the number of islands.',
-        codeSnippets: 
+        codeSnippets: [
             {
                 language: 'Java',
-                title: 'Number of Island using Bf',
+                title: 'Number of Island using Bfs',
                 code: `class Solution {
     static Boolean isValid(int nx,int ny,int r,int c){
         return (nx>=0 && nx<r && ny>=0 && ny<c);
@@ -670,23 +670,9 @@ public class ReverseLinkedList {
             },
             
             
-
-        ]
-    },
- {
-        title: '',
-        content: '',
-        codeSnippets: [
-            {
-                language: '',
-                title: '',
-                code: ``
-            },
-            
-            
-
-        ]
-    },
+        
+    ]
+}
 
 
     
