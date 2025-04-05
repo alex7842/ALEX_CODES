@@ -415,6 +415,7 @@ class Helper{
 }
 
 class Node extends Helper{
+
     int data;
     Node next;
     int nonce=generateNonce();
