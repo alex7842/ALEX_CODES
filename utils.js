@@ -672,7 +672,65 @@ public class ReverseLinkedList {
             
         
         ]
-}
+},
+	 {
+        title: 'Sum of All Subsets XOR Total PATTERN',
+        content: 'he XOR total of an array is defined as the bitwise XOR of all its elements, or 0 if the array is empty.',
+        codeSnippets: [
+            {
+                language: 'Java',
+                title: 'Sum of All Subsets XOR Total PATTERN',
+                code: `class Solution {
+    public int subsetXORSum(int[] nums) {
+        int n=nums.length;
+        int total=(1<<n),totalXor=0;//2^n
+        for(int mask=0;mask<total;mask++){
+           
+           int xor=0;
+            for(int j=0;j<n;j++){
+                if((mask & (1<<j))!=0){
+                  System.out.println(nums[j]+" ");
+                  xor^=nums[j];
+                }
+            }
+            totalXor+=xor;
+          
+        }
+        return totalXor;
+    }
+}`
+            },
+        
+        
+        ]
+	 },
+	 {
+        title: '',
+        content: '',
+        codeSnippets: [
+            {
+                language: 'Java',
+                title: '',
+                code: ``
+            },
+        
+        
+        ]
+	 },
+	 {
+        title: '',
+        content: '',
+        codeSnippets: [
+            {
+                language: 'Java',
+                title: '',
+                code: ``
+            },
+        
+        
+        ]
+	 },
+	
 
 
     
